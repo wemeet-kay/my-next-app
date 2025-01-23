@@ -5,6 +5,9 @@ const nextConfig = {
   images: {
     unoptimized: true, // ✅ 정적 배포 시 이미지 최적화 방지
   },
+  experimental: {
+    appDir: true, // ✅ App Router 사용 활성화
+  },
 };
 
 export default nextConfig;
