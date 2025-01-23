@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Next.js 프로젝트 실행 성공! 🚀</h1>
+      <h1>Next.js 프로젝트 실행 성공!!!!! 🚀</h1>
       <p>버튼을 클릭하면 메시지가 표시됩니다.</p>
       <button
         onClick={handleClick} // ✅ 버튼 클릭 이벤트 정상 동작 확인
