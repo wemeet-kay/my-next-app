@@ -8,11 +8,12 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Static Export 활성화
-  trailingSlash: true, // GitHub Pages에서 404 방지
+  output: 'export', // ✅ Static Export 활성화
+  trailingSlash: true, // ✅ GitHub Pages에서 경로 문제 해결
   images: {
-    unoptimized: true, // GitHub Pages는 이미지 최적화를 지원하지 않으므로 설정 필요
+    unoptimized: true, // ✅ 이미지 최적화 방지
   },
+  basePath: "/my-next-app", // ✅ GitHub Pages에서는 repository 이름을 basePath로 설정해야 함
 };
 
 export default nextConfig;

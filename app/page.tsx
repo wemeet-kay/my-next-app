@@ -1,12 +1,22 @@
-'use client'; // 👈 이 줄 추가
+'use client'; // ✅ 이 줄 추가
+
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    console.log("Next.js 앱이 로드되었습니다.");
+  }, []);
+
+  const handleClick = () => {
+    alert("버튼이 클릭되었습니다!");
+  };
+
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Next.js 프로젝트 실행 성공! 🚀</h1>
       <p>버튼을 클릭하면 메시지가 표시됩니다.</p>
       <button
-        onClick={() => alert("버튼이 클릭되었습니다!")}
+        onClick={handleClick} // ✅ 버튼 클릭 이벤트 정상 동작 확인
         style={{
           padding: "10px 20px",
           fontSize: "16px",
