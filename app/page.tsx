@@ -13,7 +13,7 @@ export default function Home() {
 
     // ✅ Flutter WebView 환경에서만 실행
     if (navigator.userAgent.includes("APP_WEBVIEW")) {
-      if (window.ReactNativeWebView && typeof window.ReactNativeWebView.postMessage === "function") {
+      if (typeof window !== "undefined" && window.ReactNativeWebView) {
         window.ReactNativeWebView.postMessage(postMessage);
         console.log(`🚀 Flutter WebView로 메시지 전송 완료! (메시지: ${postMessage})`);
         alert(`🚀 Flutter WebView로 메시지 전송 완료!\n📢 전송된 메시지: ${postMessage}`);
