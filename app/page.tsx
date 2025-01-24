@@ -14,14 +14,9 @@ export default function Home() {
     const postMessage = "requestLocationForNearbyFacilities";
 
     if (userAgent.includes("APP_WEBVIEW")) {
-      if (typeof window !== "undefined" && window.FlutterInAppWebView) {
-        window.FlutterInAppWebView.postMessage(postMessage);
-        console.log(`🚀 Flutter WebView로 메시지 전송 완료! (메시지: ${postMessage})`);
-        alert(`🚀 Flutter WebView로 메시지 전송 완료!\n📢 전송된 메시지: ${postMessage}`);
-      } else {
-        console.error("❌ `window.FlutterInAppWebView`가 정의되지 않음.");
-        alert("🚨 `window.FlutterInAppWebView`가 정의되지 않았습니다.\nFlutter WebView 설정을 확인하세요.");
-      }
+      window.FlutterInAppWebView?.postMessage(postMessage);
+      console.log(`🚀 Flutter WebView로 메시지 전송 완료! (메시지: ${postMessage})`);
+      alert(`🚀 Flutter WebView로 메시지 전송 완료!\n📢 전송된 메시지: ${postMessage}`);
     } else {
       console.warn("❌ Flutter WebView 환경이 아닙니다.");
       alert("🚨 이 기능은 Flutter WebView에서만 작동합니다.");
