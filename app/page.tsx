@@ -17,9 +17,7 @@ export default function Home() {
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>🚀 광양시 프로젝트 테스트 🚀</h1>
       <p>아래 User-Agent 값이 Flutter WebView에서 설정한 값과 같은지 확인하세요:</p>
-      <pre style={{ background: "#f4f4f4", padding: "10px", borderRadius: "5px" }}>
         {userAgent}
-      </pre>
       <p>버튼을 클릭하면 콘솔과 팝업 메시지가 표시됩니다.</p>
       <button
         onClick={handleClick} // ✅ 클릭 이벤트 설정
