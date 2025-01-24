@@ -3,8 +3,8 @@ export {};
 
 declare global {
   interface Window {
-    FlutterInAppWebView?: {
-      postMessage: (message: string) => void;
+    flutter_inappwebview?: {
+      callHandler: (handlerName: string, ...args: any[]) => Promise<any>;
     };
   }
 }

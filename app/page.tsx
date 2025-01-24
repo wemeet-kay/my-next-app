@@ -14,7 +14,7 @@ export default function Home() {
     const postMessage = "requestLocationForNearbyFacilities";
 
     if (userAgent.includes("APP_WEBVIEW")) {
-      window.FlutterInAppWebView?.postMessage(postMessage);
+      window.flutter_inappwebview?.callHandler('postMessage', postMessage);
       console.log(`🚀 Flutter WebView로 메시지 전송 완료! (메시지: ${postMessage})`);
       alert(`🚀 Flutter WebView로 메시지 전송 완료!\n📢 전송된 메시지: ${postMessage}`);
     } else {
