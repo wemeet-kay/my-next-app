@@ -9,8 +9,12 @@ export default function Home() {
   }, []);
 
   const handleClick = () => {
-    console.log("✅ 버튼이 클릭되었습니다!");
-    alert("✅ 버튼이 클릭되었습니다!");
+    const postMessage = "requestLocationForNearbyFacilities";
+    if(navigator.userAgent.includes("APP_WEBVIEW")) {
+      window.postMessage(postMessage);
+      console.log("✅ 버튼이 클릭되었습니다!");
+      alert("✅ 버튼이 클릭되었습니다!");
+    }
   };
 
   return (
