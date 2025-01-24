@@ -5,21 +5,22 @@ export default function Home() {
   const [userAgent, setUserAgent] = useState("");
 
   useEffect(() => {
-    setUserAgent(navigator.userAgent); // ✅ 브라우저의 User-Agent 가져오기
+    const ua = navigator.userAgent;
+    console.log(`🔍 현재 User-Agent: ${ua}`); // ✅ User-Agent 콘솔 로그 추가
+    setUserAgent(ua);
   }, []);
 
   const handleClick = () => {
     const postMessage = "requestLocationForNearbyFacilities";
 
-    // ✅ Flutter WebView 환경에서만 실행
-    if (navigator.userAgent.includes("APP_WEBVIEW")) {
+    if (userAgent.includes("APP_WEBVIEW")) {
       if (typeof window !== "undefined" && window.ReactNativeWebView) {
         window.ReactNativeWebView.postMessage(postMessage);
         console.log(`🚀 Flutter WebView로 메시지 전송 완료! (메시지: ${postMessage})`);
         alert(`🚀 Flutter WebView로 메시지 전송 완료!\n📢 전송된 메시지: ${postMessage}`);
       } else {
-        console.warn("🚨 ReactNativeWebView가 정의되지 않았습니다.");
-        alert("🚨 ReactNativeWebView가 정의되지 않았습니다.");
+        console.error("❌ `window.ReactNativeWebView`가 정의되지 않음.");
+        alert("🚨 `window.ReactNativeWebView`가 정의되지 않았습니다.\nFlutter WebView 설정을 확인하세요.");
       }
     } else {
       console.warn("❌ Flutter WebView 환경이 아닙니다.");
@@ -30,8 +31,8 @@ export default function Home() {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>🚀 Next.js → Flutter WebView 메시지 전송 테스트</h1>
-      <p>버튼을 클릭하면 Flutter WebView로 메시지가 전달됩니다.</p>
-      <p>현재 User-Agent: <b>{userAgent}</b></p>
+      <p>아래 User-Agent 값이 Flutter WebView에서 설정한 값과 같은지 확인하세요:</p>
+      <p><b>{userAgent}</b></p>
       <button
         onClick={handleClick}
         style={{
